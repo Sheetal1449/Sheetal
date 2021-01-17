@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import com.HybridFrameworkDemo.helper.ConfigReader;
 
@@ -18,11 +19,12 @@ public class BaseClass {
 
 	public WebDriver driver;
 	
+	@Parameters({"browser","stagingURL"})
 	@BeforeClass
-	public WebDriver StartBrowser()
+	public WebDriver StartBrowser(String browser,String appurl )
 	{
-		String browser=ConfigReader.getPropertyFromConfig("browser");
-		String appurl=ConfigReader.getPropertyFromConfig("stagingURL");
+		/*String browser=ConfigReader.getPropertyFromConfig("browser");
+		String appurl=ConfigReader.getPropertyFromConfig("stagingURL");*/
 		
 		if(browser.equalsIgnoreCase("Chrome"))
 		{
